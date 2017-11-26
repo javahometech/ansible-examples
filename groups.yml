@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: create users user
+      group:
+        name: '{{item}}'
+        state: present
+      with_items:
+          - developers
+          - adminsblr
+          - devops

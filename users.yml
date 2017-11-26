@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  become: yes
+  vars:
+    hari_pass: $6$jkl40pz.AdN8SEDQ$UhsN5UPURUdCyl5EklrwDrXoTmR6DM31bSZR7YXXVc5ZgIETVEEr..hw862skJQkzXlHG6WUmlOduj6weCn4T1
+  tasks:
+    - name: create users user
+      user:
+        name: '{{item}}'
+        group: vagrant
+        password: '{{hari_pass}}'
+      with_items:
+          - hari
+          - prasad
+          - raghu

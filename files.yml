@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: create files
+      file:
+        name: '{{item.name}}'
+        state: touch
+        owner: '{{item.owner}}'
+        group: '{{item.group}}'
+        mode: 0644
+      with_items:
+         - {name: '/tmp/file1', owner: 'vagrant', group: 'vagrant'}

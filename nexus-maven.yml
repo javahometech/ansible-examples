@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  vars_files:
+     - vars.yml 
+  tasks:
+    - name: get the war file from maven nexus
+      maven_artifact:
+        group_id: com.company
+        artifact_id: library-name
+        repository_url: 'https://repo.company.com/maven'
+        username: '{{repo_user}}'
+        password: '{{repo_password}}'
+        dest: /tmp/library-name-latest.jar 

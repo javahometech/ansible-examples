@@ -1,0 +1,9 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: install apache package on linux
+      yum:
+        name: httpd
+        state: present
+      when: ansible_distribution == "CentOS123" 

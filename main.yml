@@ -1,0 +1,9 @@
+---
+- hosts: webservers
+  tasks:
+    - import_tasks: task-1.yml
+      vars:
+        data: Welcome to Java Home Technologies
+    - name: display somthins
+      debug: msg='Second welcome'
+

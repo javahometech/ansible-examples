@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: install git
+      yum: 
+       name: git
+       state: present
+    # this is the comment in the playbook
+    - name: clone code from git
+      git:
+       repo: https://github.com/javahometech/myweb
+       dest: /tmp/code
